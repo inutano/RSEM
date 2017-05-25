@@ -417,25 +417,11 @@ if (!$is_alignment) {
                  " --outFileNamePrefix $imdName ";
                  ##
 
-#<<<<<<< HEAD
-   #if ( $gzipped_read_file ) {
-   #  $command .= ' --readFilesCommand zcat ';
-   #} elsif ( $bzipped_read_file ) {
-   #  $command .= ' --readFilesCommand bzcat ';
-   #}
-
-   #if ( $read_type == 0 || $read_type == 1 ) {
-   #  $command .= " --readFilesIn $mate1_list ";
-   #} else {
-   #  $command .= " --readFilesIn $mate1_list $mate2_list";
-   #}
-#=======
       if ( $star_gzipped_read_file ) {
     $command .= ' --readFilesCommand zcat ';
       } elsif ( $star_bzipped_read_file ) {
     $command .= ' --readFilesCommand bzip2 -c ';
       }
-#>>>>>>> master
 
       if ( $read_type == 0 || $read_type == 1 ) {
     $command .= " --readFilesIn $mate1_list ";
