@@ -414,14 +414,14 @@ if (!$is_alignment) {
 
                  # ' --quantMode TranscriptomeSAM '.           # CHANGED BY INUTANO
                  ' --quantMode TranscriptomeSAM GeneCounts ' . # CHANGED BY INUTANO
-                 ' --outSAMheaderHD \@HD VN:1.4 SO:unsorted '.
-
-                 ## define output file prefix
-                 " --outFileNamePrefix $imdName ";
+                 ' --outSAMheaderHD \@HD VN:1.4 SO:unsorted ' .
 
                  ## ADDED BY INUTANO
                  ' --outSJfilterReads Unique ' .       # CHANGED BY INUTANO
                  ' --outSAMstrandField intronMotif ' . # CHANGED BY INUTANO
+
+                 ## define output file prefix
+                 " --outFileNamePrefix $imdName ";
                  ##
 
       if ( $star_gzipped_read_file ) {
