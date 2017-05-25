@@ -29,7 +29,7 @@ my $read_type = 1; # default, single end with qual
 
 
 my $strandedness = "none"; # none, forward, reverse
-my $probF = undef; # deprecated 
+my $probF = undef; # deprecated
 my $strand_specific = undef; # deprecated
 
 
@@ -38,7 +38,7 @@ my $C = 2;
 my $E = 99999999;
 my $L = 25;
 my $maxHits = 200;
-my $chunkMbs = 0;	# 0 = use bowtie default
+my $chunkMbs = 0;  # 0 = use bowtie default
 my $phred33 = 0;
 my $phred64 = 0;
 my $solexa = 0;
@@ -116,76 +116,76 @@ my $chipseq_read_files_multi_targets = ''; ## read files for multiple targets
                                            ## delimited by comma
 my $chipseq_bed_files_multi_targets = '';  ## BED files for multiple targets
                                            ## delimited by comma
-my $cap_stacked_chipseq_reads = 0; ## for multiple targets, remove redundant 
+my $cap_stacked_chipseq_reads = 0; ## for multiple targets, remove redundant
                                    ## reads aligned to the same position
 my $n_max_stacked_chipseq_reads = 5; ## as above
 
 
 GetOptions("keep-intermediate-files" => \$keep_intermediate_files,
-	   "temporary-folder=s" => \$temp_dir,
-	   "no-qualities" => \$no_qual,
-	   "paired-end" => \$paired_end,
+     "temporary-folder=s" => \$temp_dir,
+     "no-qualities" => \$no_qual,
+     "paired-end" => \$paired_end,
      "strandedness=s" => \$strandedness,
-	   "alignments" => \$is_alignment,
-	   "fai=s" => \$faiF,
-	   "tag=s" => \$tagName,
-	   "seed-length=i" => \$L,
-	   "bowtie-path=s" => \$bowtie_path,
-	   "bowtie-n=i" => \$C,
-	   "bowtie-e=i" => \$E,
-	   "bowtie-m=i" => \$maxHits,
-	   "bowtie-chunkmbs=i" => \$chunkMbs,
-	   "phred33-quals" => \$phred33,
-	   "phred64-quals" => \$phred64, #solexa1.3-quals" => \$phred64,
-	   "solexa-quals" => \$solexa,
-	   "bowtie2" => \$bowtie2,
-	   "bowtie2-path=s" => \$bowtie2_path,
-	   "bowtie2-mismatch-rate=f" => \$bowtie2_mismatch_rate,
-	   "bowtie2-k=i" => \$bowtie2_k,
-	   "bowtie2-sensitivity-level=s" => \$bowtie2_sensitivity_level,
-	   "fragment-length-min=i" => \$minL,
-	   "fragment-length-max=i" => \$maxL,
-	   "fragment-length-mean=f" => \$mean,
-	   "fragment-length-sd=f" => \$sd,
-	   "estimate-rspd" => \$estRSPD,
-	   "num-rspd-bins=i" => \$B,
-	   "p|num-threads=i" => \$nThreads,
-	   "append-names" => \$appendNames,
-	   "sampling-for-bam" => \$sampling,
-	   "no-bam-output" => sub { $genBamF = 0; },
-	   "output-genome-bam" => \$genGenomeBamF,
-	   "sort-bam-by-coordinate" => \$sort_bam_by_coordinate,
-	   "sort-bam-by-read-name" => \$sort_bam_by_read_name,
-	   "sort-bam-memory-per-thread=s" => \$sort_bam_memory,
-	   "single-cell-prior" => \$single_cell_prior,
-	   "calc-pme" => \$calcPME,
-	   "gibbs-burnin=i" => \$BURNIN,
-	   "gibbs-number-of-samples=i" => \$NCV,
-	   "gibbs-sampling-gap=i", \$SAMPLEGAP,
-	   "calc-ci" => \$calcCI,
-	   "ci-credibility-level=f" => \$CONFIDENCE,
-	   "ci-memory=i" => \$NMB,
-	   "ci-number-of-samples-per-count-vector=i" => \$NSPC,
-	   'star' => \$star,
-	   'star-path=s' => \$star_path,
-	   "star-gzipped-read-file" => \$star_gzipped_read_file,
-	   "star-bzipped-read-file" => \$star_bzipped_read_file,
-	   "star-output-genome-bam" => \$star_output_genome_bam,	   
-	   "seed=i" => \$seed,
-	   'run-pRSEM' => \$run_prsem,
-	   'chipseq-target-read-files=s' => \$chipseq_target_read_files, 
-	                                      ## delimited by comma if more than one
-	   'chipseq-control-read-files=s' => \$chipseq_control_read_files, 
-	                                      ## delimited by comma if more than one
+     "alignments" => \$is_alignment,
+     "fai=s" => \$faiF,
+     "tag=s" => \$tagName,
+     "seed-length=i" => \$L,
+     "bowtie-path=s" => \$bowtie_path,
+     "bowtie-n=i" => \$C,
+     "bowtie-e=i" => \$E,
+     "bowtie-m=i" => \$maxHits,
+     "bowtie-chunkmbs=i" => \$chunkMbs,
+     "phred33-quals" => \$phred33,
+     "phred64-quals" => \$phred64, #solexa1.3-quals" => \$phred64,
+     "solexa-quals" => \$solexa,
+     "bowtie2" => \$bowtie2,
+     "bowtie2-path=s" => \$bowtie2_path,
+     "bowtie2-mismatch-rate=f" => \$bowtie2_mismatch_rate,
+     "bowtie2-k=i" => \$bowtie2_k,
+     "bowtie2-sensitivity-level=s" => \$bowtie2_sensitivity_level,
+     "fragment-length-min=i" => \$minL,
+     "fragment-length-max=i" => \$maxL,
+     "fragment-length-mean=f" => \$mean,
+     "fragment-length-sd=f" => \$sd,
+     "estimate-rspd" => \$estRSPD,
+     "num-rspd-bins=i" => \$B,
+     "p|num-threads=i" => \$nThreads,
+     "append-names" => \$appendNames,
+     "sampling-for-bam" => \$sampling,
+     "no-bam-output" => sub { $genBamF = 0; },
+     "output-genome-bam" => \$genGenomeBamF,
+     "sort-bam-by-coordinate" => \$sort_bam_by_coordinate,
+     "sort-bam-by-read-name" => \$sort_bam_by_read_name,
+     "sort-bam-memory-per-thread=s" => \$sort_bam_memory,
+     "single-cell-prior" => \$single_cell_prior,
+     "calc-pme" => \$calcPME,
+     "gibbs-burnin=i" => \$BURNIN,
+     "gibbs-number-of-samples=i" => \$NCV,
+     "gibbs-sampling-gap=i", \$SAMPLEGAP,
+     "calc-ci" => \$calcCI,
+     "ci-credibility-level=f" => \$CONFIDENCE,
+     "ci-memory=i" => \$NMB,
+     "ci-number-of-samples-per-count-vector=i" => \$NSPC,
+     'star' => \$star,
+     'star-path=s' => \$star_path,
+     "star-gzipped-read-file" => \$star_gzipped_read_file,
+     "star-bzipped-read-file" => \$star_bzipped_read_file,
+     "star-output-genome-bam" => \$star_output_genome_bam,
+     "seed=i" => \$seed,
+     'run-pRSEM' => \$run_prsem,
+     'chipseq-target-read-files=s' => \$chipseq_target_read_files,
+                                        ## delimited by comma if more than one
+     'chipseq-control-read-files=s' => \$chipseq_control_read_files,
+                                        ## delimited by comma if more than one
      'chipseq-read-files-multi-targets=s' => \$chipseq_read_files_multi_targets,
                                           ## delimited by comma
      'chipseq-bed-files-multi-targets=s' => \$chipseq_bed_files_multi_targets,
                                          ## delimited by comma
      'cap-stacked-chipseq-reads' => \$cap_stacked_chipseq_reads,
      'n-max-stacked-chipseq-reads=i' => \$n_max_stacked_chipseq_reads,
-	   'chipseq-peak-file=s' => \$chipseq_peak_file,
-	   'partition-model=s' => \$partition_model,
-	   "time" => \$mTime,
+     'chipseq-peak-file=s' => \$chipseq_peak_file,
+     'partition-model=s' => \$partition_model,
+     "time" => \$mTime,
 
      # deprecated
      "strand-specific" => \$strand_specific,
@@ -193,9 +193,9 @@ GetOptions("keep-intermediate-files" => \$keep_intermediate_files,
      "sam|bam" => \$is_alignment,
 
      # help
-	   "version" => \$version,
-	   "q|quiet" => \$quiet,
-	   "h|help" => \$help) or pod2usage(-exitval => 2, -verbose => 2);
+     "version" => \$version,
+     "q|quiet" => \$quiet,
+     "h|help" => \$help) or pod2usage(-exitval => 2, -verbose => 2);
 
 pod2usage(-verbose => 2) if ($help == 1);
 &showVersionInfo($FindBin::RealBin) if ($version == 1);
@@ -207,9 +207,9 @@ if ($is_alignment) {
     pod2usage(-msg => "--bowtie-path, --bowtie-n, --bowtie-e, --bowtie-m, --phred33-quals, --phred64-quals, --solexa-quals, --bowtie2, --bowtie2-path, --bowtie2-mismatch-rate, --bowtie2-k, --bowtie2-sensitivity-level, --star, --star-path, and --star-output-genome-bam cannot be set if input is SAM/BAM/CRAM format!", -exitval => 2, -verbose => 2) if ($bowtie_path ne "" || $C != 2 || $E != 99999999 || $maxHits != 200 || $phred33 || $phred64 || $solexa || $bowtie2 || $bowtie2_path ne "" || $bowtie2_mismatch_rate != 0.1 || $bowtie2_k != 200 || $bowtie2_sensitivity_level ne "sensitive" || $star || $star_path ne "" || $star_output_genome_bam);
 }
 else {
-    pod2usage(-msg => "Invalid number of arguments!", -exitval => 2, -verbose => 2) if (!$paired_end && scalar(@ARGV) != 3 || $paired_end && scalar(@ARGV) != 4);    
+    pod2usage(-msg => "Invalid number of arguments!", -exitval => 2, -verbose => 2) if (!$paired_end && scalar(@ARGV) != 3 || $paired_end && scalar(@ARGV) != 4);
     pod2usage(-msg => "If --no-qualities is set, neither --phred33-quals, --phred64-quals or --solexa-quals can be active!", -exitval => 2, -verbose => 2) if ($no_qual && ($phred33 + $phred64 + $solexa > 0));
-    pod2usage(-msg => "Only one of --phred33-quals, --phred64-quals, and --solexa-quals can be active!", -exitval => 2, -verbose => 2) if ($phred33 + $phred64 + $solexa > 1);    
+    pod2usage(-msg => "Only one of --phred33-quals, --phred64-quals, and --solexa-quals can be active!", -exitval => 2, -verbose => 2) if ($phred33 + $phred64 + $solexa > 1);
     pod2usage(-msg => "--bowtie2-path, --bowtie2-mismatch-rate, --bowtie2-k and --bowtie2-sensitivity-level cannot be set if bowtie aligner is used!", -exitval => 2, -verbose => 2) if (!$bowtie2 && ($bowtie2_path ne "" || $bowtie2_mismatch_rate != 0.1 || $bowtie2_k != 200 || $bowtie2_sensitivity_level ne "sensitive"));
     pod2usage(-msg => "--bowtie-path, --bowtie-n, --bowtie-e, --bowtie-m cannot be set if bowtie2 aligner is used!", -exitval => 2, -verbose => 2) if ($bowtie2 && ($bowtie_path ne "" || $C != 2 || $E != 99999999 || $maxHits != 200));
     pod2usage(-msg => "Mismatch rate must be within [0, 1]!", -exitval => 2, -verbose => 2) if ($bowtie2 && ($bowtie2_mismatch_rate < 0.0 || $bowtie2_mismatch_rate > 1.0));
@@ -231,10 +231,10 @@ pod2usage(-msg => "Bzipped read files can only be used for aligner STAR\n", -exi
 
 if ( $run_prsem ) {
   my $msg = '';
-  if ( ( $chipseq_peak_file eq '' ) && 
-       ( ( $chipseq_target_read_files eq ''  ) || 
-         ( $chipseq_control_read_files eq '' ) || 
-         ( $bowtie_path eq '' ) ) && 
+  if ( ( $chipseq_peak_file eq '' ) &&
+       ( ( $chipseq_target_read_files eq ''  ) ||
+         ( $chipseq_control_read_files eq '' ) ||
+         ( $bowtie_path eq '' ) ) &&
        ( ( $chipseq_read_files_multi_targets eq '' ) ||
          ( $bowtie_path eq '' ) ) &&
        ( $chipseq_bed_files_multi_targets eq '' )
@@ -249,8 +249,8 @@ if ( $run_prsem ) {
            "4. --chipseq-bed-files-multi-targets <string>\n";
   }
 
-  my @prsem_partition_models = ( 
-     'pk', 'pk_lgtnopk', 
+  my @prsem_partition_models = (
+     'pk', 'pk_lgtnopk',
      'lm3', 'lm4', 'lm5', 'lm6',
      'nopk_lm2pk', 'nopk_lm3pk', 'nopk_lm4pk', 'nopk_lm5pk',
      'pk_lm2nopk', 'pk_lm3nopk', 'pk_lm4nopk', 'pk_lm5nopk',
@@ -263,16 +263,16 @@ if ( $run_prsem ) {
   }
 
   if ( exists $prtmdl2one{$partition_model} ) {
-    if ( ( $partition_model eq 'cmb_lgt' ) && 
+    if ( ( $partition_model eq 'cmb_lgt' ) &&
          ( ( $chipseq_read_files_multi_targets eq '' ) &&
            ( $chipseq_bed_files_multi_targets  eq '' ) ) ){
       $msg = 'either --chipseq-read-files-multi-targets <string> or ' .
              '--chipseq-bed-files-multi-targets <string> needs to be ' .
              "defined for pRSEM's partition model: '$partition_model'";
-    } elsif ( ( $partition_model ne 'pk' ) && 
+    } elsif ( ( $partition_model ne 'pk' ) &&
               ( $partition_model ne 'cmb_lgt' ) &&
-              ( ( $chipseq_target_read_files eq ''  ) || 
-                ( $chipseq_control_read_files eq '' ) || 
+              ( ( $chipseq_target_read_files eq ''  ) ||
+                ( $chipseq_control_read_files eq '' ) ||
                 ( $bowtie_path eq '' ) ) ){
       $msg = '--chipseq-target-read-files <string> and ' .
              '--chipseq-control-read-files <string> and ' .
@@ -288,8 +288,8 @@ if ( $run_prsem ) {
     pod2usage(-msg => "$msg\n", -exitval => 2, -verbose => 2);
   }
 
-  if ( ( $partition_model ne 'cmb_lgt' ) && 
-       ( ( $chipseq_read_files_multi_targets ne '' ) || 
+  if ( ( $partition_model ne 'cmb_lgt' ) &&
+       ( ( $chipseq_read_files_multi_targets ne '' ) ||
          ( $chipseq_bed_files_multi_targets  ne '' ) ) ) {
     print "\nCombining signals from multiple sources, partition model is set to 'cmb_lgt'\n\n";
     $partition_model = 'cmb_lgt';
@@ -324,7 +324,7 @@ else {
 }
 
 if (scalar(@ARGV) == 3) {
-    if ($is_alignment) { $inpF = $ARGV[0]; } 
+    if ($is_alignment) { $inpF = $ARGV[0]; }
     else {$mate1_list = $ARGV[0]; }
     $refName = $ARGV[1];
     $sampleName = $ARGV[2];
@@ -377,159 +377,159 @@ if ($star_path ne '') { $star_path .= '/'; }
 my $command = "";
 
 if (!$is_alignment) {
-	if ( $star ) {
-	    ## align reads by STAR
-	    my $star_genome_path = dirname($refName);
-	    $command = "$star_path"."STAR" . 
-	               ## ENCODE3 pipeline parameters
-	               " --genomeDir $star_genome_path " .
-	               ' --outSAMunmapped Within ' .
-	               ' --outFilterType BySJout ' .
-	               ' --outSAMattributes NH HI AS NM MD ' .
-	               ' --outFilterMultimapNmax 20 ' .
-	               ' --outFilterMismatchNmax 999 ' .
-	               ' --outFilterMismatchNoverLmax 0.04 ' .
-	               ' --alignIntronMin 20 ' .
-	               ' --alignIntronMax 1000000 ' .
-	               ' --alignMatesGapMax 1000000 ' .
-	               ' --alignSJoverhangMin 8 ' .
-	               ' --alignSJDBoverhangMin 1 ' .
-	               ' --sjdbScore 1 ' .
-	               " --runThreadN $nThreads " .
-	               ##
-	
-	               ## different than ENCODE3 pipeline 
-	               ## do not allow using shared memory
-	               ' --genomeLoad NoSharedMemory ' .
-	               ##
-	
-	               ## different than ENCODE3 pipeline, which sorts output BAM
-	               ## no need to do it here to save time and memory 
-	               ' --outSAMtype BAM Unsorted ' .
-	               ##
-	
-	               ## unlike ENCODE3, we don't output bedGraph files
-	
-	               ' --quantMode TranscriptomeSAM '.
-	               ' --outSAMheaderHD \@HD VN:1.4 SO:unsorted '.
-	
-	               ## define output file prefix
-	               " --outFileNamePrefix $imdName ";
-	               ##
-	
+  if ( $star ) {
+      ## align reads by STAR
+      my $star_genome_path = dirname($refName);
+      $command = "$star_path"."STAR" .
+                 ## ENCODE3 pipeline parameters
+                 " --genomeDir $star_genome_path " .
+                 ' --outSAMunmapped Within ' .
+                 ' --outFilterType BySJout ' .
+                 ' --outSAMattributes NH HI AS NM MD ' .
+                 ' --outFilterMultimapNmax 20 ' .
+                 ' --outFilterMismatchNmax 999 ' .
+                 ' --outFilterMismatchNoverLmax 0.04 ' .
+                 ' --alignIntronMin 20 ' .
+                 ' --alignIntronMax 1000000 ' .
+                 ' --alignMatesGapMax 1000000 ' .
+                 ' --alignSJoverhangMin 8 ' .
+                 ' --alignSJDBoverhangMin 1 ' .
+                 ' --sjdbScore 1 ' .
+                 " --runThreadN $nThreads " .
+                 ##
+
+                 ## different than ENCODE3 pipeline
+                 ## do not allow using shared memory
+                 ' --genomeLoad NoSharedMemory ' .
+                 ##
+
+                 ## different than ENCODE3 pipeline, which sorts output BAM
+                 ## no need to do it here to save time and memory
+                 ' --outSAMtype BAM Unsorted ' .
+                 ##
+
+                 ## unlike ENCODE3, we don't output bedGraph files
+
+                 ' --quantMode TranscriptomeSAM '.
+                 ' --outSAMheaderHD \@HD VN:1.4 SO:unsorted '.
+
+                 ## define output file prefix
+                 " --outFileNamePrefix $imdName ";
+                 ##
+
 #<<<<<<< HEAD
-	 #if ( $gzipped_read_file ) {
-	 #  $command .= ' --readFilesCommand zcat ';
-	 #} elsif ( $bzipped_read_file ) {
-	 #  $command .= ' --readFilesCommand bzcat ';
-	 #}
-	
-	 #if ( $read_type == 0 || $read_type == 1 ) {
-	 #  $command .= " --readFilesIn $mate1_list ";
-	 #} else {
-	 #  $command .= " --readFilesIn $mate1_list $mate2_list";
-	 #}
+   #if ( $gzipped_read_file ) {
+   #  $command .= ' --readFilesCommand zcat ';
+   #} elsif ( $bzipped_read_file ) {
+   #  $command .= ' --readFilesCommand bzcat ';
+   #}
+
+   #if ( $read_type == 0 || $read_type == 1 ) {
+   #  $command .= " --readFilesIn $mate1_list ";
+   #} else {
+   #  $command .= " --readFilesIn $mate1_list $mate2_list";
+   #}
 #=======
-	    if ( $star_gzipped_read_file ) {
-		$command .= ' --readFilesCommand zcat ';
-	    } elsif ( $star_bzipped_read_file ) {
-		$command .= ' --readFilesCommand bzip2 -c ';
-	    }
+      if ( $star_gzipped_read_file ) {
+    $command .= ' --readFilesCommand zcat ';
+      } elsif ( $star_bzipped_read_file ) {
+    $command .= ' --readFilesCommand bzip2 -c ';
+      }
 #>>>>>>> master
-	
-	    if ( $read_type == 0 || $read_type == 1 ) {
-		$command .= " --readFilesIn $mate1_list ";
-	    } else {
-		$command .= " --readFilesIn $mate1_list $mate2_list";
-	    }
-	} elsif (!$bowtie2) {
-	    $command = $bowtie_path."bowtie";
-	    if ($no_qual) { $command .= " -f"; }
-	    else { $command .= " -q"; }
-	    
-	    if ($phred33) { $command .= " --phred33-quals"; }
-	    elsif ($phred64) { $command .= " --phred64-quals"; }
-	    elsif ($solexa) { $command .= " --solexa-quals"; }
-    
-	    $command .= " -n $C -e $E -l $L";
-	    if ($read_type == 2 || $read_type == 3) { $command .= " -I $minL -X $maxL"; }
-	    if ($chunkMbs > 0) { $command .= " --chunkmbs $chunkMbs"; }
-	
-	    if ($probF == 1.0) { $command .= " --norc"; }
-	    elsif ($probF == 0.0) { $command .= " --nofw"; }
-	
-	    $command .= " -p $nThreads -a -m $maxHits -S";
-	    if ($quiet) { $command .= " --quiet"; }    
-	    
-	    $command .= " $refName";
-	    if ($read_type == 0 || $read_type == 1) {
-		$command .= " $mate1_list"; 
-	    }
-	    else {
-		$command .= " -1 $mate1_list -2 $mate2_list";
-	    }
-	    
-	    # pipe to samtools to generate a BAM file
-	    $command .= " | samtools view -S -b -o $imdName.bam -";
-	}
-	else {
-	    $command = $bowtie2_path."bowtie2";
-	    if ($no_qual) { $command .= " -f"; }
-	    else { $command .= " -q"; }
-	    
-	    if ($phred33) { $command .= " --phred33"; }
-	    elsif ($phred64) { $command .= " --phred64"; }
-	    elsif ($solexa) { $command .= " --solexa-quals"; }
-	    
-	    if ($bowtie2_sensitivity_level eq "very_fast") { $command .= " --very-fast"; }
-	    elsif ($bowtie2_sensitivity_level eq "fast") { $command .= " --fast"; }
-	    elsif ($bowtie2_sensitivity_level eq "sensitive") { $command .= " --sensitive"; }
-	    else { $command .= " --very-sensitive"; }
-	    
-	    $command .= " --dpad 0 --gbar 99999999 --mp 1,1 --np 1 --score-min L,0,-$bowtie2_mismatch_rate";  
-	    
-	    if ($read_type == 2 || $read_type == 3) { $command .= " -I $minL -X $maxL --no-mixed --no-discordant"; }
-	    
-	    if ($probF == 1.0) { $command .= " --norc"; }
-	    elsif ($probF == 0.0) { $command .= " --nofw"; }
-	    
-	    $command .= " -p $nThreads -k $bowtie2_k";
-	    if ($quiet) { $command .= " --quiet"; }    
-	    
-	    $command .= " -x $refName";
-	    if ($read_type == 0 || $read_type == 1) {
-		$command .= " -U $mate1_list"; 
-	    }
-	    else {
-		$command .= " -1 $mate1_list -2 $mate2_list";
-	    }
 
-	    # pipe to samtools to generate a BAM file
-	    $command .= " | samtools view -S -b -o $imdName.bam -";
-	}
-	
-	if ($mTime) { $time_start = time(); }
+      if ( $read_type == 0 || $read_type == 1 ) {
+    $command .= " --readFilesIn $mate1_list ";
+      } else {
+    $command .= " --readFilesIn $mate1_list $mate2_list";
+      }
+  } elsif (!$bowtie2) {
+      $command = $bowtie_path."bowtie";
+      if ($no_qual) { $command .= " -f"; }
+      else { $command .= " -q"; }
 
-	&runCommand($command);
-	
-	if ($mTime) { $time_end = time(); $time_alignment = $time_end - $time_start; }
+      if ($phred33) { $command .= " --phred33-quals"; }
+      elsif ($phred64) { $command .= " --phred64-quals"; }
+      elsif ($solexa) { $command .= " --solexa-quals"; }
 
-	$inpF = "$imdName.bam";
+      $command .= " -n $C -e $E -l $L";
+      if ($read_type == 2 || $read_type == 3) { $command .= " -I $minL -X $maxL"; }
+      if ($chunkMbs > 0) { $command .= " --chunkmbs $chunkMbs"; }
 
-	if ( $star ) {
-	    my $star_tr_bam = $imdName . 'Aligned.toTranscriptome.out.bam';
-	    rename $star_tr_bam, $inpF
-		or die "can't rename $star_tr_bam to $inpF: $!\n";
-	    rmdir $imdName . "_STARtmp/";
-	    my $star_genome_bam = $imdName . "Aligned.out.bam";
-	    my $rsem_star_genome_bam = $sampleName.'.STAR.genome.bam';
-	    if ( $star_output_genome_bam ) {
-		rename $star_genome_bam, $rsem_star_genome_bam or die 
-		    "can't move $star_genome_bam to $rsem_star_genome_bam: $!\n";
-	    } else {
-		unlink $star_genome_bam or die "can't remove $star_genome_bam: $!\n";
-	    }
-	}
+      if ($probF == 1.0) { $command .= " --norc"; }
+      elsif ($probF == 0.0) { $command .= " --nofw"; }
+
+      $command .= " -p $nThreads -a -m $maxHits -S";
+      if ($quiet) { $command .= " --quiet"; }
+
+      $command .= " $refName";
+      if ($read_type == 0 || $read_type == 1) {
+    $command .= " $mate1_list";
+      }
+      else {
+    $command .= " -1 $mate1_list -2 $mate2_list";
+      }
+
+      # pipe to samtools to generate a BAM file
+      $command .= " | samtools view -S -b -o $imdName.bam -";
+  }
+  else {
+      $command = $bowtie2_path."bowtie2";
+      if ($no_qual) { $command .= " -f"; }
+      else { $command .= " -q"; }
+
+      if ($phred33) { $command .= " --phred33"; }
+      elsif ($phred64) { $command .= " --phred64"; }
+      elsif ($solexa) { $command .= " --solexa-quals"; }
+
+      if ($bowtie2_sensitivity_level eq "very_fast") { $command .= " --very-fast"; }
+      elsif ($bowtie2_sensitivity_level eq "fast") { $command .= " --fast"; }
+      elsif ($bowtie2_sensitivity_level eq "sensitive") { $command .= " --sensitive"; }
+      else { $command .= " --very-sensitive"; }
+
+      $command .= " --dpad 0 --gbar 99999999 --mp 1,1 --np 1 --score-min L,0,-$bowtie2_mismatch_rate";
+
+      if ($read_type == 2 || $read_type == 3) { $command .= " -I $minL -X $maxL --no-mixed --no-discordant"; }
+
+      if ($probF == 1.0) { $command .= " --norc"; }
+      elsif ($probF == 0.0) { $command .= " --nofw"; }
+
+      $command .= " -p $nThreads -k $bowtie2_k";
+      if ($quiet) { $command .= " --quiet"; }
+
+      $command .= " -x $refName";
+      if ($read_type == 0 || $read_type == 1) {
+    $command .= " -U $mate1_list";
+      }
+      else {
+    $command .= " -1 $mate1_list -2 $mate2_list";
+      }
+
+      # pipe to samtools to generate a BAM file
+      $command .= " | samtools view -S -b -o $imdName.bam -";
+  }
+
+  if ($mTime) { $time_start = time(); }
+
+  &runCommand($command);
+
+  if ($mTime) { $time_end = time(); $time_alignment = $time_end - $time_start; }
+
+  $inpF = "$imdName.bam";
+
+  if ( $star ) {
+      my $star_tr_bam = $imdName . 'Aligned.toTranscriptome.out.bam';
+      rename $star_tr_bam, $inpF
+    or die "can't rename $star_tr_bam to $inpF: $!\n";
+      rmdir $imdName . "_STARtmp/";
+      my $star_genome_bam = $imdName . "Aligned.out.bam";
+      my $rsem_star_genome_bam = $sampleName.'.STAR.genome.bam';
+      if ( $star_output_genome_bam ) {
+    rename $star_genome_bam, $rsem_star_genome_bam or die
+        "can't move $star_genome_bam to $rsem_star_genome_bam: $!\n";
+      } else {
+    unlink $star_genome_bam or die "can't remove $star_genome_bam: $!\n";
+      }
+  }
 }
 
 if ( $sort_bam_by_read_name ) {
@@ -537,8 +537,8 @@ if ( $sort_bam_by_read_name ) {
     $command = "samtools sort -n -@ $nThreads -m $sort_bam_memory -o $sorted_bam $inpF";
     &runCommand($command);
     if (!$is_alignment) {
-	$command = "rm -f $inpF";
-	&runCommand($command);
+  $command = "rm -f $inpF";
+  &runCommand($command);
     }
     $inpF = $sorted_bam;
 }
@@ -552,7 +552,7 @@ if ($quiet) { $command .= " -q"; }
 
 &runCommand($command);
 
-$command = "rsem-build-read-index $gap"; 
+$command = "rsem-build-read-index $gap";
 if ($read_type == 0) { $command .= " 0 $quiet $imdName\_alignable.fa"; }
 elsif ($read_type == 1) { $command .= " 1 $quiet $imdName\_alignable.fq"; }
 elsif ($read_type == 2) { $command .= " 0 $quiet $imdName\_alignable_1.fa $imdName\_alignable_2.fa"; }
@@ -569,18 +569,18 @@ print OUTPUT "$B\n";
 print OUTPUT "$mate_minL $mate_maxL\n";
 print OUTPUT "$mean $sd\n";
 print OUTPUT "$L\n";
-close(OUTPUT);  
+close(OUTPUT);
 
 my @seeds = ();
-if ($seed ne "NULL") { 
-    srand($seed); 
+if ($seed ne "NULL") {
+    srand($seed);
     for (my $i = 0; $i < 3; $i++) {
-	push(@seeds, int(rand(1 << 32))); 
+  push(@seeds, int(rand(1 << 32)));
     }
 }
 
 $command = "rsem-run-em $refName $read_type $sampleName $imdName $statName -p $nThreads";
-if ($genBamF) { 
+if ($genBamF) {
     $command .= " -b $inpF";
     if ($faiF ne "") { $command .= " 1 $faiF"; }
     else { $command .= " 0"; }
@@ -597,7 +597,7 @@ if ($alleleS) {
     &collectResults("allele", "$imdName.allele_res", "$sampleName.alleles.results"); # allele level
     &collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
     &collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
-} 
+}
 else {
     &collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
     &collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
@@ -605,22 +605,22 @@ else {
 
 if ($genBamF) {
     if ($genGenomeBamF) {
-	$command = "rsem-tbam2gbam $refName $sampleName.transcript.bam $sampleName.genome.bam";
-	&runCommand($command);
+  $command = "rsem-tbam2gbam $refName $sampleName.transcript.bam $sampleName.genome.bam";
+  &runCommand($command);
     }
-    
-    if ($sort_bam_by_coordinate) {
-	$command = "samtools sort -@ $nThreads -m $sort_bam_memory -o $sampleName.transcript.sorted.bam $sampleName.transcript.bam";
-	&runCommand($command);
-	$command = "samtools index $sampleName.transcript.sorted.bam";
-	&runCommand($command);
 
-	if ($genGenomeBamF) {
-	    $command = "samtools sort -@ $nThreads -m $sort_bam_memory -o $sampleName.genome.sorted.bam $sampleName.genome.bam";
-	    &runCommand($command);
-	    $command = "samtools index $sampleName.genome.sorted.bam";
-	    &runCommand($command);
-	}
+    if ($sort_bam_by_coordinate) {
+  $command = "samtools sort -@ $nThreads -m $sort_bam_memory -o $sampleName.transcript.sorted.bam $sampleName.transcript.bam";
+  &runCommand($command);
+  $command = "samtools index $sampleName.transcript.sorted.bam";
+  &runCommand($command);
+
+  if ($genGenomeBamF) {
+      $command = "samtools sort -@ $nThreads -m $sort_bam_memory -o $sampleName.genome.sorted.bam $sampleName.genome.bam";
+      &runCommand($command);
+      $command = "samtools index $sampleName.genome.sorted.bam";
+      &runCommand($command);
+  }
     }
 }
 
@@ -639,18 +639,18 @@ if ($calcPME || $calcCI ) {
 
 if ($calcPME || $calcCI) {
     if ($alleleS) {
-	system("mv $sampleName.alleles.results $imdName.alleles.results.bak1");
-	system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak1");
-	system("mv $sampleName.genes.results $imdName.genes.results.bak1");
-	&collectResults("allele", "$imdName.allele_res", "$sampleName.alleles.results"); # allele level
-	&collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
-	&collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
+  system("mv $sampleName.alleles.results $imdName.alleles.results.bak1");
+  system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak1");
+  system("mv $sampleName.genes.results $imdName.genes.results.bak1");
+  &collectResults("allele", "$imdName.allele_res", "$sampleName.alleles.results"); # allele level
+  &collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
+  &collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
     }
     else {
-	system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak1");
-	system("mv $sampleName.genes.results $imdName.genes.results.bak1");
-	&collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
-	&collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
+  system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak1");
+  system("mv $sampleName.genes.results $imdName.genes.results.bak1");
+  &collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
+  &collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
     }
 }
 
@@ -663,18 +663,18 @@ if ($calcCI) {
     &runCommand($command);
 
     if ($alleleS) {
-	system("mv $sampleName.alleles.results $imdName.alleles.results.bak2");
-	system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak2");
-	system("mv $sampleName.genes.results $imdName.genes.results.bak2");
-	&collectResults("allele", "$imdName.allele_res", "$sampleName.alleles.results"); # allele level
-	&collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
-	&collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
+  system("mv $sampleName.alleles.results $imdName.alleles.results.bak2");
+  system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak2");
+  system("mv $sampleName.genes.results $imdName.genes.results.bak2");
+  &collectResults("allele", "$imdName.allele_res", "$sampleName.alleles.results"); # allele level
+  &collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
+  &collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
     }
     else {
-	system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak2");
-	system("mv $sampleName.genes.results $imdName.genes.results.bak2");
-	&collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
-	&collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
+  system("mv $sampleName.isoforms.results $imdName.isoforms.results.bak2");
+  system("mv $sampleName.genes.results $imdName.genes.results.bak2");
+  &collectResults("isoform", "$imdName.iso_res", "$sampleName.isoforms.results"); # isoform level
+  &collectResults("gene", "$imdName.gene_res", "$sampleName.genes.results"); # gene level
     }
 }
 
@@ -698,9 +698,9 @@ if ( $run_prsem ) {
     $command .= " --chipseq-peak-file $chipseq_peak_file";
   } elsif ( $partition_model eq 'cmb_lgt' ) {  ## multi-sources
     if ( $chipseq_bed_files_multi_targets ne '' ) { ## use bed over read
-      $command .= ' --chipseq-bed-files-multi-targets ' . 
+      $command .= ' --chipseq-bed-files-multi-targets ' .
                     $chipseq_bed_files_multi_targets;
-    } elsif ( $chipseq_read_files_multi_targets ne '' ) { 
+    } elsif ( $chipseq_read_files_multi_targets ne '' ) {
       $command .= ' --chipseq-read-files-multi-targets ' .
                     $chipseq_read_files_multi_targets .
                   " --bowtie-path $bowtie_path" ;
@@ -727,28 +727,28 @@ if ( $run_prsem ) {
   ## collect pRSEM results
   my $fiso_res  = "$imdName.iso_res";
   my $fgene_res = "$imdName.gene_res";
-  
+
   my $fprsem_iso_res  = "${imdName}_prsem.iso_res";
   my $fprsem_gene_res = "${imdName}_prsem.gene_res";
-  
+
   system("head -8 $fiso_res  > $fprsem_iso_res" );
   system("tail -5 $fiso_res >> $fprsem_iso_res" );
-  
+
   system("head -7 $fgene_res  > $fprsem_gene_res");
   system("tail -4 $fgene_res >> $fprsem_gene_res");
 
   my $fstat_iso_results  = "${statName}_uniform_prior_1.isoforms.results";
   my $fstat_gene_results = "${statName}_uniform_prior_1.genes.results";
-  
+
   my $fiso_results  = "${sampleName}.isoforms.results";
   my $fgene_results = "${sampleName}.genes.results";
 
-  rename $fiso_results, $fstat_iso_results or die 
+  rename $fiso_results, $fstat_iso_results or die
     "can't rename $fiso_results to $fstat_iso_results: $!\n";
-  
-  rename $fgene_results, $fstat_gene_results or die 
+
+  rename $fgene_results, $fstat_gene_results or die
     "can't rename $fgene_results to $fstat_gene_results: $!\n";
-  
+
   collectResults("isoform", $fprsem_iso_res,  $fiso_results);
   collectResults("gene",    $fprsem_gene_res, $fgene_results);
 }
@@ -760,7 +760,7 @@ if (!$keep_intermediate_files) {
 
 if ($mTime) { $time_end = time(); }
 
-if ($mTime) { 
+if ($mTime) {
     open(OUTPUT, ">$sampleName.time");
     print OUTPUT "Aligning reads: $time_alignment s.\n";
     print OUTPUT "Estimating expression levels: $time_rsem s.\n";
@@ -778,8 +778,8 @@ rsem-calculate-expression - Estimate gene and isoform expression from RNA-Seq da
 
 =head1 SYNOPSIS
 
- rsem-calculate-expression [options] upstream_read_file(s) reference_name sample_name 
- rsem-calculate-expression [options] --paired-end upstream_read_file(s) downstream_read_file(s) reference_name sample_name 
+ rsem-calculate-expression [options] upstream_read_file(s) reference_name sample_name
+ rsem-calculate-expression [options] --paired-end upstream_read_file(s) downstream_read_file(s) reference_name sample_name
  rsem-calculate-expression [options] --alignments [--paired-end] input reference_name sample_name
 
 =head1 ARGUMENTS
@@ -798,7 +798,7 @@ Comma-separated list of files containing downstream reads which are paired with 
 
 SAM/BAM/CRAM formatted input file.  If "-" is specified for the filename, the input is instead assumed to come from standard input. RSEM requires all alignments of the same read group together. For paired-end reads, RSEM also requires the two mates of any alignment be adjacent. In addition, RSEM does not allow the SEQ and QUAL fields to be empty. See Description section for how to make input file obey RSEM's requirements.
 
-=item B<reference_name>                        
+=item B<reference_name>
 
 The name of the reference used.  The user must have run 'rsem-prepare-reference' with this reference_name before running this program.
 
@@ -842,7 +842,7 @@ Use Bowtie 2 instead of Bowtie to align reads. Since currently RSEM does not han
 
 =item B<--star>
 
-Use STAR to align reads. Alignment parameters are from ENCODE3's STAR-RSEM pipeline. To save computational time and memory resources, STAR's Output BAM file is unsorted. It is stored in RSEM's temporary directory with name as 'sample_name.bam'. Each STAR job will have its own private copy of the genome in memory. (Default: off) 
+Use STAR to align reads. Alignment parameters are from ENCODE3's STAR-RSEM pipeline. To save computational time and memory resources, STAR's Output BAM file is unsorted. It is stored in RSEM's temporary directory with name as 'sample_name.bam'. Each STAR job will have its own private copy of the genome in memory. (Default: off)
 
 =item B<--append-names>
 
@@ -858,7 +858,7 @@ By default, RSEM uses Dirichlet(1) as the prior to calculate posterior mean esti
 
 =item B<--calc-pme>
 
-Run RSEM's collapsed Gibbs sampler to calculate posterior mean estimates. (Default: off) 
+Run RSEM's collapsed Gibbs sampler to calculate posterior mean estimates. (Default: off)
 
 =item B<--calc-ci>
 
@@ -900,7 +900,7 @@ Generate a BAM file, 'sample_name.genome.bam', with alignments mapped to genomic
 
 =item B<--sort-bam-by-coordinate>
 
-Sort RSEM generated transcript and genome BAM files by coordinates and build associated indices. (Default: off)  
+Sort RSEM generated transcript and genome BAM files by coordinates and build associated indices. (Default: off)
 
 =item B<--sort-bam-memory-per-thread> <string>
 
@@ -1025,7 +1025,7 @@ The total number of count vectors RSEM will collect from its Gibbs samplers. (De
 
 =item B<--gibbs-sampling-gap> <int>
 
-The number of rounds between two succinct count vectors RSEM collects. If the count vector after round N is collected, the count vector after round N + <int> will also be collected. (Default: 1) 
+The number of rounds between two succinct count vectors RSEM collects. If the count vector after round N is collected, the count vector after round N + <int> will also be collected. (Default: 1)
 
 =item B<--ci-credibility-level> <double>
 
@@ -1095,7 +1095,7 @@ A keyword to specify the partition model used by prior-enhanced RSEM. It must be
 
 =over 2
 
-=item - B<pk> 
+=item - B<pk>
 
 Partitioned by whether an isoform has a ChIP-seq peak overlapping with its transcription start site (TSS) region. The TSS region is defined as [TSS-500bp, TSS+500bp]. For simplicity, we refer this type of peak as 'TSS peak' when explaining other keywords.
 
@@ -1109,11 +1109,11 @@ Based on their ChIP-seq signals, isoforms are classified into 3, 4, 5, or 6 part
 
 =item - B<nopk_lm2pk>, B<nopk_lm3pk>, B<nopk_lm4pk>, or B<nopk_lm5pk>
 
-First partitioned by TSS peak. Then, for isoforms in the 'with TSS peak' set, a linear regression model is employed to further classify them into 2, 3, 4, or 5 partitions. 
+First partitioned by TSS peak. Then, for isoforms in the 'with TSS peak' set, a linear regression model is employed to further classify them into 2, 3, 4, or 5 partitions.
 
 =item - B<pk_lm2nopk>, B<pk_lm3nopk>, B<pk_lm4nopk>, or B<pk_lm5nopk>
 
-First partitioned by TSS peak. Then, for isoforms in the 'no TSS peak' set, a linear regression model is employed to further classify them into 2, 3, 4, or 5 partitions. 
+First partitioned by TSS peak. Then, for isoforms in the 'no TSS peak' set, a linear regression model is employed to further classify them into 2, 3, 4, or 5 partitions.
 
 =item - B<cmb_lgt>
 
@@ -1155,11 +1155,11 @@ Probability of generating a read from the forward strand of a transcript. Set to
 
 =head1 DESCRIPTION
 
-In its default mode, this program aligns input reads against a reference transcriptome with Bowtie and calculates expression values using the alignments.  RSEM assumes the data are single-end reads with quality scores, unless the '--paired-end' or '--no-qualities' options are specified. Alternatively, users can use STAR to align reads using the '--star' option. RSEM has provided options in 'rsem-prepare-reference' to prepare STAR's genome indices. Users may use an alternative aligner by specifying '--alignments', and providing an alignment file in SAM/BAM/CRAM format. However, users should make sure that they align against the indices generated by 'rsem-prepare-reference' and the alignment file satisfies the requirements mentioned in ARGUMENTS section. 
+In its default mode, this program aligns input reads against a reference transcriptome with Bowtie and calculates expression values using the alignments.  RSEM assumes the data are single-end reads with quality scores, unless the '--paired-end' or '--no-qualities' options are specified. Alternatively, users can use STAR to align reads using the '--star' option. RSEM has provided options in 'rsem-prepare-reference' to prepare STAR's genome indices. Users may use an alternative aligner by specifying '--alignments', and providing an alignment file in SAM/BAM/CRAM format. However, users should make sure that they align against the indices generated by 'rsem-prepare-reference' and the alignment file satisfies the requirements mentioned in ARGUMENTS section.
 
 One simple way to make the alignment file satisfying RSEM's requirements is to use the 'convert-sam-for-rsem' script. This script accepts SAM/BAM/CRAM files as input and outputs a BAM file. For example, type the following command to convert a SAM file, 'input.sam', to a ready-for-use BAM file, 'input_for_rsem.bam':
 
-  convert-sam-for-rsem input.sam input_for_rsem  
+  convert-sam-for-rsem input.sam input_for_rsem
 
 For details, please refer to 'convert-sam-for-rsem's documentation page.
 
@@ -1170,7 +1170,7 @@ For details, please refer to 'convert-sam-for-rsem's documentation page.
 2. For single-end data, it is strongly recommended that the user provide the fragment length distribution parameters (--fragment-length-mean and --fragment-length-sd).  For paired-end data, RSEM will automatically learn a fragment length distribution from the data.
 
 3. Some aligner parameters have default values different from their original settings.
- 
+
 4. With the '--calc-pme' option, posterior mean estimates will be calculated in addition to maximum likelihood estimates.
 
 5. With the '--calc-ci' option, 95% credibility intervals and posterior mean estimates will be calculated in addition to maximum likelihood estimates.
@@ -1183,7 +1183,7 @@ With the '--run-pRSEM' option and associated options (see section 'PRIOR-ENHANCE
 
 =over
 
-=item B<sample_name.isoforms.results> 
+=item B<sample_name.isoforms.results>
 
 File containing isoform level expression estimates. The first line
 contains column names separated by the tab character. The format of
@@ -1222,7 +1222,7 @@ Million mapped reads. It is another relative measure of transcript
 abundance. If we define l_bar be the mean transcript length in a
 sample, which can be calculated as
 
-l_bar = \sum_i TPM_i / 10^6 * effective_length_i (i goes through every transcript), 
+l_bar = \sum_i TPM_i / 10^6 * effective_length_i (i goes through every transcript),
 
 the following equation is hold:
 
@@ -1244,7 +1244,7 @@ percentage calculated from 'pme_TPM' values.
 'TPM_ci_lower_bound', 'TPM_ci_upper_bound', 'FPKM_ci_lower_bound' and
 'FPKM_ci_upper_bound' are lower(l) and upper(u) bounds of 95%
 credibility intervals for TPM and FPKM values. The bounds are
-inclusive (i.e. [l, u]). 
+inclusive (i.e. [l, u]).
 
 'TPM_coefficient_of_quartile_variation' and
 'FPKM_coefficient_of_quartile_variation' are coefficients of quartile
@@ -1254,7 +1254,7 @@ defined as
 
 CQV := (Q3 - Q1) / (Q3 + Q1),
 
-where Q1 and Q3 are the first and third quartiles. 
+where Q1 and Q3 are the first and third quartiles.
 
 =item B<sample_name.genes.results>
 
@@ -1314,7 +1314,7 @@ Please note that if this file is present, the fields 'length' and
 interpreted similarly as the corresponding definitions in
 'sample_name.genes.results'.
 
-=item B<sample_name.transcript.bam> 
+=item B<sample_name.transcript.bam>
 
 Only generated when --no-bam-output is not specified.
 
@@ -1367,7 +1367,7 @@ It contains time (in seconds) consumed by aligning reads, estimating expression 
 
 =item B<sample_name.stat>
 
-This is a folder instead of a file. All model related statistics are stored in this folder. Use 'rsem-plot-model' can generate plots using this folder. 
+This is a folder instead of a file. All model related statistics are stored in this folder. Use 'rsem-plot-model' can generate plots using this folder.
 
 'sample_name.stat/sample_name.cnt' contains alignment statistics. The format and meanings of each field are described in 'cnt_file_description.txt' under RSEM directory.
 
@@ -1377,7 +1377,7 @@ The following four output files will be generated only by prior-enhanced RSEM
 
 =over 2
 
-=item - 'sample_name.stat/sample_name_prsem.all_tr_features' 
+=item - 'sample_name.stat/sample_name_prsem.all_tr_features'
 
 It stores isofrom features for deriving and assigning pRSEM prior. The first line is a header and the rest is one isoform per line. The description for each column is:
 
@@ -1403,7 +1403,7 @@ It stores isofrom features for deriving and assigning pRSEM prior. The first lin
 
 =item * B<pme_count>: isoform's fragment or read count from RSEM's posterior mean estimates
 
-=item * B<tss>: isoform's TSS loci 
+=item * B<tss>: isoform's TSS loci
 
 =item * B<tss_pk>: equal to 1 if isoform's [TSS-500bp, TSS+500bp] region overlaps with a RNA Pol II peak; 0 otherwise
 
@@ -1417,11 +1417,11 @@ It stores prior parameters for every isoform. This file does not have a header. 
 
 =item - 'sample_name.stat/sample_name_uniform_prior_1.isoforms.results'
 
-RSEM's posterior mean estimates on the isoform level with an initial pseudo-count of one for every isoform. It is in the same format as the 'sample_name.isoforms.results'. 
+RSEM's posterior mean estimates on the isoform level with an initial pseudo-count of one for every isoform. It is in the same format as the 'sample_name.isoforms.results'.
 
 =item - 'sample_name.stat/sample_name_uniform_prior_1.genes.results'
 
-RSEM's posterior mean estimates on the gene level with an initial pseudo-count of one for every isoform. It is in the same format as the 'sample_name.genes.results'. 
+RSEM's posterior mean estimates on the gene level with an initial pseudo-count of one for every isoform. It is in the same format as the 'sample_name.genes.results'.
 
 =back
 
@@ -1445,14 +1445,14 @@ In addition, extra columns will be added to 'sample_name.stat/all_tr_features'
 
 =item * B<is_expr>: equal to 1 if isoform has an abundance >= 1 TPM and a non-zero read count from RSEM's posterior mean estimates; 0 otherwise
 
-=item * B<"$external_data_set_basename">: log10 of external data's signal at [TSS-500, TSS+500]. Signal is the number of reads aligned within that interval and normalized to RPKM by read depth and interval length. It will be set to -4 if no read aligned to that interval. 
+=item * B<"$external_data_set_basename">: log10 of external data's signal at [TSS-500, TSS+500]. Signal is the number of reads aligned within that interval and normalized to RPKM by read depth and interval length. It will be set to -4 if no read aligned to that interval.
 
 There are multiple columns like this one, where each represents an external data set.
 
 =item * B<prd_expr_prob>: predicted probability from logistic regression model on whether this isoform is expressed or not. A probability higher than 0.5 is considered as expressed
 
 =item * B<partition>: group index, to which this isoforms is partitioned
- 
+
 =item * B<prior>: prior parameter for this isoform
 
 =back
@@ -1461,7 +1461,7 @@ There are multiple columns like this one, where each represents an external data
 
 =head1 EXAMPLES
 
-Assume the path to the bowtie executables is in the user's PATH environment variable. Reference files are under '/ref' with name 'mouse_125'. 
+Assume the path to the bowtie executables is in the user's PATH environment variable. Reference files are under '/ref' with name 'mouse_125'.
 
 1) '/data/mmliver.fq', single-end reads with quality scores. Quality scores are encoded as for 'GA pipeline version >= 1.3'. We want to use 8 threads and generate a genome BAM file. In addition, we want to append gene/transcript names to the result files:
 
@@ -1543,7 +1543,7 @@ Assume the path to the bowtie executables is in the user's PATH environment vari
                            /ref/mouse_125 \
                            mmliver_paired_end_quals
 
-8) Similar to the example in 7), suppose we want to use the partition model 'pk_lm2nopk' (partitioning isoforms by Pol II TSS peak first and then partitioning 'no TSS peak' isoforms into two bins by a linear regression model), and we want to partition isoforms by RNA Pol II's ChIP-seq read files '/data/mmliver_PolIIRep1.fq.gz' and '/data/mmliver_PolIIRep2.fq.gz', and the control ChIP-seq read files '/data/mmliver_ChIPseqCtrl.fq.gz'. Also, assuming Bowtie's executables are under '/sw/bowtie/': 
+8) Similar to the example in 7), suppose we want to use the partition model 'pk_lm2nopk' (partitioning isoforms by Pol II TSS peak first and then partitioning 'no TSS peak' isoforms into two bins by a linear regression model), and we want to partition isoforms by RNA Pol II's ChIP-seq read files '/data/mmliver_PolIIRep1.fq.gz' and '/data/mmliver_PolIIRep2.fq.gz', and the control ChIP-seq read files '/data/mmliver_ChIPseqCtrl.fq.gz'. Also, assuming Bowtie's executables are under '/sw/bowtie/':
 
  rsem-calculate-expression --star \
                            --star-path /sw/STAR \
@@ -1561,7 +1561,7 @@ Assume the path to the bowtie executables is in the user's PATH environment vari
                            /ref/mouse_125 \
                            mmliver_paired_end_quals
 
-9) Similar to the example in 8), suppose we want to derive prior from four histone modification ChIP-seq read data sets: '/data/H3K27Ac.fastq.gz', '/data/H3K4me1.fastq.gz', '/data/H3K4me2.fastq.gz', and '/data/H3K4me3.fastq.gz'. Also, assuming Bowtie's executables are under '/sw/bowtie/': 
+9) Similar to the example in 8), suppose we want to derive prior from four histone modification ChIP-seq read data sets: '/data/H3K27Ac.fastq.gz', '/data/H3K4me1.fastq.gz', '/data/H3K4me2.fastq.gz', and '/data/H3K4me3.fastq.gz'. Also, assuming Bowtie's executables are under '/sw/bowtie/':
 
  rsem-calculate-expression --star \
                            --star-path /sw/STAR \
