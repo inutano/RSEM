@@ -401,8 +401,7 @@ if (!$is_alignment) {
 
                  ## different than ENCODE3 pipeline
                  ## do not allow using shared memory
-                 # ' --genomeLoad NoSharedMemory ' . # CHANGED BY INUTANO
-                 ' --genomeLoad LoadAndKeep ' .      # CHANGED BY INUTANO
+                 ' --genomeLoad NoSharedMemory ' .
                  ##
 
                  ## different than ENCODE3 pipeline, which sorts output BAM
